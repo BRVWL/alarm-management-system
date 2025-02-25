@@ -1,0 +1,19 @@
+{
+  "name": "cogvis-assignment",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && cd server && pnpm install && cd ../client && pnpm install",
+    "dev:server": "cd server && pnpm run start:dev",
+    "dev:client": "cd client && pnpm dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build:server": "cd server && pnpm run build",
+    "build:client": "cd client && pnpm run build",
+    "build": "npm run build:server && npm run build:client",
+    "start:server": "cd server && pnpm run start:prod",
+    "start:client": "cd client && pnpm run preview",
+    "start": "concurrently \"npm run start:server\" \"npm run start:client\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
