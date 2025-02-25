@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { AlarmType } from '../entities/alarm.entity';
+import { VisualizationResponseDto } from '../../visualizations/dto/visualization-response.dto';
 
 export class AlarmResponseDto {
   @ApiProperty({
@@ -20,4 +21,11 @@ export class AlarmResponseDto {
     example: AlarmType.MOTION,
   })
   type: AlarmType;
+
+  @ApiProperty({
+    description: 'The visualizations associated with this alarm',
+    type: [VisualizationResponseDto],
+    required: false,
+  })
+  visualizations?: VisualizationResponseDto[];
 }

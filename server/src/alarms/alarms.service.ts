@@ -15,12 +15,17 @@ export class AlarmsService {
   ) {}
 
   async findAll(): Promise<AlarmResponseDto[]> {
-    const alarms = await this.alarmsRepository.find();
+    const alarms = await this.alarmsRepository.find({
+      relations: ['visualizations'],
+    });
     return alarms;
   }
 
   async findOne(id: string): Promise<AlarmResponseDto> {
-    return this.alarmsRepository.findOneOrFail({ where: { id } });
+    return this.alarmsRepository.findOneOrFail({
+      where: { id },
+      relations: ['visualizations'],
+    });
   }
 
   async create(createAlarmDto: CreateAlarmDto): Promise<AlarmResponseDto> {
