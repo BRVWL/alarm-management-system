@@ -3,8 +3,10 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
+  OneToMany,
 } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
+import { Visualization } from '../../visualizations/entities/visualization.entity';
 
 export enum AlarmType {
   MOTION = 'motion',
@@ -38,4 +40,7 @@ export class Alarm {
   })
   @ApiProperty({ description: 'The type of alarm', enum: AlarmType })
   type: AlarmType;
+
+  @OneToMany(() => Visualization, (visualization) => visualization.alarm)
+  visualizations: Visualization[];
 }

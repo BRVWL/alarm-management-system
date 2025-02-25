@@ -10,5 +10,6 @@ import { ApiTags } from '@nestjs/swagger';
   imports: [TypeOrmModule.forFeature([Alarm])],
   controllers: [AlarmsController],
   providers: [AlarmsService],
+  exports: [AlarmsService],
 })
 export class AlarmsModule {}
