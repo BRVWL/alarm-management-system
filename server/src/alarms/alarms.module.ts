@@ -4,10 +4,11 @@ import { AlarmsController } from './alarms.controller';
 import { AlarmsService } from './alarms.service';
 import { Alarm } from './entities/alarm.entity';
 import { ApiTags } from '@nestjs/swagger';
+import { Sensor } from '../sensors/entities/sensor.entity';
 
 @ApiTags('Alarms')
 @Module({
-  imports: [TypeOrmModule.forFeature([Alarm])],
+  imports: [TypeOrmModule.forFeature([Alarm, Sensor])],
   controllers: [AlarmsController],
   providers: [AlarmsService],
   exports: [AlarmsService],

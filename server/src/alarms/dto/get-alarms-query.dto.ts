@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEnum, IsOptional, IsInt, Min, Max } from 'class-validator';
+import { IsEnum, IsOptional, IsInt, Min, Max, IsUUID } from 'class-validator';
 import { Type } from 'class-transformer';
 import { AlarmType } from '../entities/alarm.entity';
 
@@ -12,6 +12,15 @@ export class GetAlarmsQueryDto {
   @IsOptional()
   @IsEnum(AlarmType)
   type?: AlarmType;
+
+  @ApiProperty({
+    description: 'Filter alarms by sensor ID',
+    example: '123e4567-e89b-12d3-a456-426614174000',
+    required: false,
+  })
+  @IsOptional()
+  @IsUUID()
+  sensorId?: string;
 
   @ApiProperty({
     description: 'Page number (1-based)',

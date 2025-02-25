@@ -9,6 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import { AlarmsModule } from './alarms/alarms.module';
 import { VisualizationsModule } from './visualizations/visualizations.module';
 import { MulterModule } from '@nestjs/platform-express';
+import { SensorsModule } from './sensors/sensors.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { MulterModule } from '@nestjs/platform-express';
     MulterModule.register({
       dest: './uploads',
     }),
+    SensorsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,6 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Alarm } from '../../alarms/entities/alarm.entity';
-
+import { AlarmResponseDto } from '../../alarms/dto/alarm-response.dto';
 export class VisualizationResponseDto {
   @ApiProperty({
     description: 'The unique identifier for the visualization',
@@ -28,8 +27,9 @@ export class VisualizationResponseDto {
   uploadedAt: Date;
 
   @ApiProperty({
-    description: 'The alarm associated with this visualization',
-    type: () => Alarm,
+    description: 'The ID of the alarm associated with this visualization',
+    example: '123e4567-e89b-12d3-a456-426614174000',
+    type: () => AlarmResponseDto,
   })
-  alarm: Alarm;
+  alarm: AlarmResponseDto;
 }

@@ -4,9 +4,11 @@ import {
   Column,
   CreateDateColumn,
   OneToMany,
+  ManyToOne,
 } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 import { Visualization } from '../../visualizations/entities/visualization.entity';
+import { Sensor } from 'src/sensors/entities/sensor.entity';
 
 export enum AlarmType {
   MOTION = 'motion',
@@ -40,6 +42,13 @@ export class Alarm {
   })
   @ApiProperty({ description: 'The type of alarm', enum: AlarmType })
   type: AlarmType;
+
+  @ManyToOne(() => Sensor, (sensor) => sensor.alarms, { eager: true })
+  @ApiProperty({
+    description: 'The sensor that triggered this alarm',
+    type: () => Sensor,
+  })
+  sensor: Sensor;
 
   @OneToMany(() => Visualization, (visualization) => visualization.alarm)
   visualizations: Visualization[];
