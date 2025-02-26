@@ -25,21 +25,16 @@ This project consists of two main components:
 
 ## Server Installation
 
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   ```
-
-2. Install server dependencies:
+1. Install server dependencies:
    ```bash
    cd server
    npm install
    ```
 
-3. Database Setup:
+2. Database Setup:
    The application uses SQLite, which is included in the dependencies. The database file will be created automatically when you start the server.
 
-4. Create an admin user:
+3. Create an admin user:
    ```bash
    cd server
    npm run create-admin
