@@ -1,9 +1,5 @@
 # Cogvis Alarm Management System
 
-A secure API for managing alarms from sensors, handling visualizations, and providing authentication.
-
-> **Note:** This documentation currently focuses on the backend API. Frontend documentation will be added in future updates.
-
 ## Features
 
 - Secure authentication with JWT tokens
@@ -100,8 +96,7 @@ For detailed API documentation, please refer to the Swagger documentation at htt
 ### Project Structure
 
 ```
-cogvis-assignment/
-├── client/             # Frontend application (to be documented later)
+server/
 ├── server/             # Backend API
 │   ├── src/
 │   │   ├── alarms/     # Alarms module
@@ -217,3 +212,81 @@ If you encounter issues with SQLite on M1/M2 Mac, follow these steps:
    npm cache verify
    npm install sqlite3
    ```
+
+## Client Application
+
+### Client Features
+
+- Modern React-based UI with Material UI components
+- JWT authentication with protected routes
+- Dashboard with real-time statistics
+- Alarm management interface
+- Sensor monitoring
+- Visualization display
+- Responsive design for desktop and mobile
+
+### Client Installation
+
+1. Install dependencies:
+   ```bash
+   # Install client dependencies
+   cd client
+   npm install
+   ```
+
+2. Configure the API URL:
+   The client is configured to connect to the API at http://localhost:3000 by default.
+
+### Running the Client
+
+1. Start the development server:
+   ```bash
+   cd client
+   npm run dev
+   ```
+   The client will run on http://localhost:5173 by default.
+
+2. Build for production:
+   ```bash
+   cd client
+   npm run build
+   ```
+   The production build will be available in the `dist` directory.
+
+### Client Project Structure
+
+```
+client/
+├── src/
+│   ├── api/            # Generated API clients from OpenAPI spec
+│   ├── assets/         # Static assets like images and icons
+│   ├── components/     # Reusable UI components
+│   ├── context/        # React context providers (auth, theme)
+│   ├── hooks/          # Custom React hooks
+│   │   ├── useAuth.ts          # Authentication hook
+│   │   ├── useDashboardStats.ts # Dashboard statistics hook
+│   │   └── ...                 # Other custom hooks
+│   ├── pages/          # Application pages/routes
+│   │   ├── Dashboard.tsx       # Main dashboard
+│   │   ├── Login.tsx           # Authentication page
+│   │   ├── Alarms.tsx          # Alarms management
+│   │   └── ...                 # Other pages
+│   ├── utils/          # Utility functions and helpers
+│   ├── App.tsx         # Main application component
+│   ├── main.tsx        # Application entry point
+│   └── theme.ts        # Material UI theme configuration
+├── public/             # Public static files
+├── scripts/            # Build and utility scripts
+├── index.html          # HTML entry point
+└── package.json        # Client dependencies
+```
+
+### Client Technologies
+
+- **React**: Frontend library for building user interfaces
+- **TypeScript**: Type-safe JavaScript
+- **Material UI**: Component library for consistent design
+- **React Router**: Client-side routing
+- **Axios**: HTTP client for API requests
+- **OpenAPI Generator**: Auto-generated API clients
+- **Vite**: Fast build tool and development server
