@@ -14,6 +14,7 @@ import {
   ApiTags,
   ApiConsumes,
   ApiBody,
+  ApiBearerAuth,
 } from '@nestjs/swagger';
 import { VisualizationsService } from './visualizations.service';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -22,6 +23,7 @@ import { VisualizationResponseDto } from './dto/visualization-response.dto';
 import { CreateVisualizationDto } from './dto/create-visualization.dto';
 
 @ApiTags('Visualizations')
+@ApiBearerAuth('access-token')
 @Controller('visualizations')
 export class VisualizationsController {
   constructor(

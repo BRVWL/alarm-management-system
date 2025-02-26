@@ -2,6 +2,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { Alarm } from 'src/alarms/entities/alarm.entity';
 import { Visualization } from 'src/visualizations/entities/visualization.entity';
 import { Sensor } from 'src/sensors/entities/sensor.entity';
+import { User } from 'src/auth/entities/user.entity';
 
 /**
  * SQLite Configuration Issue and Solution:
@@ -26,7 +27,7 @@ import { Sensor } from 'src/sensors/entities/sensor.entity';
 export const config: TypeOrmModuleOptions = {
   type: 'sqlite',
   database: 'db.sqlite',
-  entities: [Alarm, Visualization, Sensor],
+  entities: [Alarm, Visualization, Sensor, User],
   synchronize: true,
   autoLoadEntities: true,
 };

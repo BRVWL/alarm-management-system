@@ -7,13 +7,19 @@ import {
   Delete,
   Query,
 } from '@nestjs/common';
-import { ApiOperation, ApiTags, ApiResponse } from '@nestjs/swagger';
+import {
+  ApiOperation,
+  ApiTags,
+  ApiResponse,
+  ApiBearerAuth,
+} from '@nestjs/swagger';
 import { AlarmsService } from './alarms.service';
 import { CreateAlarmDto } from './dto/create-alarm.dto';
 import { AlarmResponseDto } from './dto/alarm-response.dto';
 import { GetAlarmsQueryDto } from './dto/get-alarms-query.dto';
 
 @ApiTags('Alarms')
+@ApiBearerAuth('access-token')
 @Controller('alarms')
 export class AlarmsController {
   constructor(private readonly alarmsService: AlarmsService) {}

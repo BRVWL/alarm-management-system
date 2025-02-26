@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { APP_GUARD } from '@nestjs/core';
 
 // Modules
 import { config } from './config/db.config';
@@ -10,6 +11,7 @@ import { AlarmsModule } from './alarms/alarms.module';
 import { VisualizationsModule } from './visualizations/visualizations.module';
 import { MulterModule } from '@nestjs/platform-express';
 import { SensorsModule } from './sensors/sensors.module';
+import { GlobalAuthGuard } from './auth/guards/global-auth.guard';
 
 @Module({
   imports: [
@@ -23,6 +25,12 @@ import { SensorsModule } from './sensors/sensors.module';
     SensorsModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_GUARD,
+      useClass: GlobalAuthGuard,
+    },
+  ],
 })
 export class AppModule {}

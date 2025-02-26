@@ -8,13 +8,19 @@ import {
   Param,
   NotFoundException,
 } from '@nestjs/common';
-import { ApiOperation, ApiTags, ApiResponse } from '@nestjs/swagger';
+import {
+  ApiOperation,
+  ApiTags,
+  ApiResponse,
+  ApiBearerAuth,
+} from '@nestjs/swagger';
 import { SensorsService } from './sensors.service';
 import { CreateSensorDto } from './dto/create-sensor.dto';
 import { UpdateSensorDto } from './dto/update-sensor.dto';
 import { SensorResponseDto } from './dto/sensor-response.dto';
 
 @ApiTags('Sensors')
+@ApiBearerAuth('access-token')
 @Controller('sensors')
 export class SensorsController {
   constructor(private readonly sensorsService: SensorsService) {}
