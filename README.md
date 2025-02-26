@@ -1,6 +1,10 @@
 # Cogvis Alarm Management System
 
-## Features
+This project consists of two main components:
+1. **Backend Server API** - A Node.js/NestJS REST API
+2. **Frontend Client** - A React-based web application
+
+## System Features
 
 - Secure authentication with JWT tokens
 - Receive alarms from sensors (UUID, timestamp, type)
@@ -15,18 +19,19 @@
 - npm or yarn
 - SQLite
 
-## Getting Started
+---
 
-### API Installation
+# BACKEND SERVER
+
+## Server Installation
 
 1. Clone the repository:
    ```bash
    git clone <repository-url>
    ```
 
-2. Install dependencies:
+2. Install server dependencies:
    ```bash
-   # Install server dependencies
    cd server
    npm install
    ```
@@ -43,7 +48,7 @@
    - Username: `admin`
    - Password: `admin123`
 
-### Running the API Server
+## Running the Server
 
 1. Start the server:
    ```bash
@@ -55,7 +60,7 @@
 2. Access the API documentation:
    Open your browser and navigate to http://localhost:3000/api to access the Swagger documentation.
 
-## API Authentication
+## Server Authentication
 
 The API uses JWT (JSON Web Token) for authentication. All endpoints except for login and register are protected and require authentication.
 
@@ -80,7 +85,7 @@ curl -X GET http://localhost:3000/alarms \
   -H "Authorization: Bearer <your-token>"
 ```
 
-## API Endpoints
+## Server API Endpoints
 
 The API provides the following main endpoints:
 
@@ -91,27 +96,23 @@ The API provides the following main endpoints:
 
 For detailed API documentation, please refer to the Swagger documentation at http://localhost:3000/api when the server is running.
 
-## API Development
-
-### Project Structure
+## Server Project Structure
 
 ```
-server/
-├── server/             # Backend API
-│   ├── src/
-│   │   ├── alarms/     # Alarms module
-│   │   ├── auth/       # Authentication module
-│   │   ├── config/     # Configuration files
-│   │   ├── sensors/    # Sensors module
-│   │   ├── visualizations/ # Visualizations module
-│   │   ├── app.module.ts   # Main application module
-│   │   └── main.ts     # Application entry point
-│   ├── uploads/        # Directory for uploaded files
-│   └── package.json    # Server dependencies
-└── package.json        # Root dependencies
+server/                 # Backend API
+├── src/
+│   ├── alarms/         # Alarms module
+│   ├── auth/           # Authentication module
+│   ├── config/         # Configuration files
+│   ├── sensors/        # Sensors module
+│   ├── visualizations/ # Visualizations module
+│   ├── app.module.ts   # Main application module
+│   └── main.ts         # Application entry point
+├── uploads/            # Directory for uploaded files
+└── package.json        # Server dependencies
 ```
 
-### Environment Variables
+## Server Environment Variables
 
 The API supports the following environment variables:
 
@@ -120,7 +121,7 @@ The API supports the following environment variables:
 
 For production, it's recommended to set these variables in a `.env` file or through your deployment environment.
 
-## API Troubleshooting
+## Server Troubleshooting
 
 ### Authentication Issues
 
@@ -213,9 +214,11 @@ If you encounter issues with SQLite on M1/M2 Mac, follow these steps:
    npm install sqlite3
    ```
 
-## Client Application
+---
 
-### Client Features
+# FRONTEND CLIENT
+
+## Client Features
 
 - Modern React-based UI with Material UI components
 - JWT authentication with protected routes
@@ -225,11 +228,10 @@ If you encounter issues with SQLite on M1/M2 Mac, follow these steps:
 - Visualization display
 - Responsive design for desktop and mobile
 
-### Client Installation
+## Client Installation
 
-1. Install dependencies:
+1. Install client dependencies:
    ```bash
-   # Install client dependencies
    cd client
    npm install
    ```
@@ -237,7 +239,7 @@ If you encounter issues with SQLite on M1/M2 Mac, follow these steps:
 2. Configure the API URL:
    The client is configured to connect to the API at http://localhost:3000 by default.
 
-### Running the Client
+## Running the Client
 
 1. Start the development server:
    ```bash
@@ -253,7 +255,7 @@ If you encounter issues with SQLite on M1/M2 Mac, follow these steps:
    ```
    The production build will be available in the `dist` directory.
 
-### Client Project Structure
+## Client Project Structure
 
 ```
 client/
@@ -281,7 +283,7 @@ client/
 └── package.json        # Client dependencies
 ```
 
-### Client Technologies
+## Client Technologies
 
 - **React**: Frontend library for building user interfaces
 - **TypeScript**: Type-safe JavaScript
