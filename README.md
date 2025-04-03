@@ -1,4 +1,4 @@
-# Cogvis Alarm Management System
+# Alarm Management System
 
 This project consists of two main components:
 1. **Backend Server API** - A Node.js/NestJS REST API
